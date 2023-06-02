@@ -82,24 +82,28 @@ body{
 }
 
 .card .image-section{
+    display: flex;
     width: 30%;
     height: 100%;
     margin: auto;
+    justify-content: center;
 }
 
 .image-section img{
+    max-height: 400px;
     max-width: 100%;
     border-radius: 5px;
 }
 
 .card .description-section{
     width: 70%;
-    height: max-content;
+    max-height: 500px;
     text-align: start;
     padding: 0px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    
 }
 
 .description-section .text-des{
@@ -116,7 +120,7 @@ p.card-heading{
 }
 
 textarea.card-body{
-    height: 100px;
+    height: auto;
     width: 100%;
     overflow: hidden;
     padding-right: 5px;
@@ -126,8 +130,7 @@ textarea.card-body{
 }
 
 p.card-datetime{
-    padding-bottom: 10px;
-    padding-left: 0px;
+    margin: 10px 1px;
 }
 
 .description-section .card-other{
