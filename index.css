@@ -1,0 +1,225 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'poppins', sans-serif;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body{
+    background-color: rgb(247, 245, 245);
+}
+
+.container{
+    width: 70%;
+    margin: 10px auto;
+}
+
+.container .heading{
+    text-align: center;
+    margin: 20px 10px;
+}
+
+.heading .title{
+    font-size: 44px;
+    font-weight: 600;
+}
+
+.heading .sub-title{
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.container .news{
+    margin: 10px;
+    height: max-content;
+}
+
+.news .tags{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.tags span{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: white;
+    font-size: 20px;
+    font-weight: 400;
+    box-shadow: rgb(26, 26, 26) 0px 0px 2px;
+}
+
+.tags span:hover{
+    cursor: pointer;
+    background-color: rgb(43, 58, 196);
+    color: white;
+    box-shadow: none;
+}
+
+.news .news-cards{
+    height: max-content;
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 25px 5px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: rgb(26, 26, 26) 0px 0px 2px;
+    height: fit-content;
+}
+
+.card .image-section{
+    width: 30%;
+    height: 100%;
+    margin: auto;
+}
+
+.image-section img{
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.card .description-section{
+    width: 70%;
+    height: max-content;
+    text-align: start;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.description-section .text-des{
+    height: 80%;
+}
+
+.description-section .text-des p{
+    padding: 5px 0px;
+}
+
+p.card-heading{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+textarea.card-body{
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    padding-right: 5px;
+    background-color: none;
+    resize: none;
+    border: none;
+}
+
+p.card-datetime{
+    padding-bottom: 10px;
+    padding-left: 0px;
+}
+
+.description-section .card-other{
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-other .card-tag, .card-readmore{
+    margin: auto 0px;
+    text-align: center;
+    padding: 8px 5px;
+    border-radius: 5px;
+    box-shadow: rgb(26, 26, 26) 0px 0px 2px;
+}
+
+.card-other .card-tag{
+    background-color: rgb(61, 80, 253);
+    color: white;
+}
+
+.card-other .card-readmore{
+    background-color: rgb(1, 190, 74);
+    color: white;
+}
+
+.card-other .card-tag:hover{
+    cursor: pointer;
+    background-color: rgb(43, 58, 196);
+    box-shadow: none;
+}
+
+.card-other .card-readmore:hover{
+    cursor: pointer;
+    background-color: rgb(2, 170, 66);
+    box-shadow: none;
+}
+
+@media only screen and (max-width: 1200px) {
+    .container{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .container{
+        width: 95%;
+    }
+    .tags span{
+        font-size: 12px;
+        margin: 5px;
+        padding: 5px;
+    }
+    .card{
+        flex-direction: column;
+    }
+    .card .image-section{
+        width: 100%;
+    }
+    .card .description-section{
+        width: 100%;
+    }
+
+    .card .description-section .card-heading{
+        font-size: 14px;
+    }
+    .card .description-section .card-body{
+        font-size: 12px;
+    }
+    .card .description-section .card-datetime{
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .description-section .card-other{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .card-other .card-tag, .card-readmore{
+        font-size: 14px;
+        margin: 5px auto;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    .news .tags{
+        flex-direction: column;
+    }
+
+    .tags span{
+        margin: 5px auto;
+    }
+}
