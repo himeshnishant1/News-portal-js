@@ -1,7 +1,7 @@
-const url = "https://newsapi.org/v2/everything?language=en&q=tesla&from=2023-05-02&sortBy=publishedAt&apiKey=f6b7a74dad3840b5a27ccb9877370e72";
+let url = "https://newsapi.org/v2/everything?language=en&q=india&apiKey=f6b7a74dad3840b5a27ccb9877370e72";
 
 
-async function getData(url){
+async function getData(){
     try{
         const response = await fetch(url);
         const json = await response.json();
@@ -12,8 +12,11 @@ async function getData(url){
     }
 }
 
-getData(url)
+function setData(){
+    getData()
     .then(data => {
+        const cardContainer = document.querySelector(".news-cards");
+        cardContainer.innerHTML = "";
         data.articles.forEach(item => {
             let title = item.title.toString();
             if(title.length > 100)   title = title.substring(0, 100) + "...";
@@ -27,7 +30,7 @@ getData(url)
                                 <div class="text-des">
                                     <p class="card-heading">${title}</p>
                                     <textarea disabled class="card-body">${description}</textarea>
-                                    <p class="card-datetime">${item.publishedAt}</p>
+                                    <p class="card-datetime">${item.publishedAt.replace("Z","").split("T")[0]} ${item.publishedAt.replace("Z","").split("T")[1]}</p>
                                 </div>
                                 <div class="card-other">
                                     <span class="card-tag">${item.source.name}</span>
@@ -35,9 +38,29 @@ getData(url)
                                 </div>
                             </div>
                         </div>`;
-            const cardContainer = document.querySelector(".news-cards");
             cardContainer.innerHTML += card;
         })
     })
     .catch(error => console.log(error));
+}
+
+const tag = document.querySelector(".tags");
+
+tag.addEventListener("click", event => {
+    url = "https://newsapi.org/v2/everything?language=en&";
+    const value = event.target.innerHTML.toString();
+    if(value === "US(All)") url += "q=us AND business";
+    else if(value === "US(Business)")   url += "q=us AND business&sortBy=publishedAt";
+    else if(value === "Cryptocurrency")   url += "q=cryptocurrency&sortBy=publishedAt";
+    else if(value === "Techcrunch")   url += "domains=techcrunch.com&sortBy=publishedAt";
+    url += "&apiKey=f6b7a74dad3840b5a27ccb9877370e72";
+    tag.children[0].classList.remove("active");
+    tag.children[1].classList.remove("active");
+    tag.children[2].classList.remove("active");
+    tag.children[3].classList.remove("active");
+    event.target.classList.add("active");
+    setData();
+});
+
+setData();
 

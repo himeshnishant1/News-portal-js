@@ -58,8 +58,15 @@ body{
     box-shadow: rgb(26, 26, 26) 0px 0px 2px;
 }
 
+
 .tags span:hover{
     cursor: pointer;
+    background-color: rgb(43, 58, 196);
+    color: white;
+    box-shadow: none;
+}
+
+.tags .active{
     background-color: rgb(43, 58, 196);
     color: white;
     box-shadow: none;
