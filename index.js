@@ -47,13 +47,14 @@ function setData(){
 const tag = document.querySelector(".tags");
 
 tag.addEventListener("click", event => {
-    url = "https://newsapi.org/v2/everything?language=en&";
+    url = "https://newsapi.org/v2/";
     const value = event.target.innerHTML.toString();
-    if(value === "US(All)") url += "q=us AND business";
-    else if(value === "US(Business)")   url += "q=us AND business&sortBy=publishedAt";
-    else if(value === "Cryptocurrency")   url += "q=cryptocurrency&sortBy=publishedAt";
-    else if(value === "Techcrunch")   url += "domains=techcrunch.com&sortBy=publishedAt";
+    if(value === "US(All)") url += "top-headlines?language=en&country=us";
+    else if(value === "US(Business)")   url += "top-headlines?language=en&country=us&category=business";
+    else if(value === "Cryptocurrency")   url += "everything?language=en&q=cryptocurrency&sortBy=publishedAt";
+    else if(value === "Techcrunch")   url += "top-headlines?language=en&domains=techcrunch.com";
     url += "&apiKey=f6b7a74dad3840b5a27ccb9877370e72";
+    console.log(url)
     tag.children[0].classList.remove("active");
     tag.children[1].classList.remove("active");
     tag.children[2].classList.remove("active");
